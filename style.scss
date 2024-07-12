@@ -1,0 +1,67 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+    gap: 0.25em;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.0rem;
+    background-color: #aaa;
+    padding: 0.5rem;
+    border-radius: 5%;
+}
+
+.cell {
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ddd;
+    border-radius: 5%;
+    color: #ddd;
+}
+
+$tile-styles: (
+    2:      (#999, 28px),
+    4:      (#09c, 28px),
+    8:      (#66c, 28px),
+    16:     (#33f, 26px),
+    32:     (#069, 26px),
+    64:     (#099, 26px),
+    128:    (#396, 24px),
+    256:    (#390, 24px),
+    512:    (#9c3, 24px),
+    1024:   (#993, 22px),
+    2048:   (#cc0, 22px),
+    4096:   (#c93, 22px),
+    8192:   (#c30, 22px),
+    16384:  (#c06, 20px),
+    32768:  (#c60, 20px),
+    65536:  (#f00, 20px),
+);
+
+@each $val, $styles in $tile-styles {
+    .tile-#{$val} {
+        background-color: nth($styles, 1);
+        font-size:nth($styles, 2)
+    }
+}
