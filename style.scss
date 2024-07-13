@@ -6,6 +6,7 @@
 
 body {
     font-family: sans-serif;
+    font-size: 30px;
 }
 
 main {
@@ -37,8 +38,8 @@ main {
 }
 
 .cell {
-    width: 4rem;
-    height: 4rem;
+    width: 6rem;
+    height: 6rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,9 +50,9 @@ main {
 }
 
 div#score-container {
-    margin-top: 0.5rem;
+    margin-top: 0.8rem;
     display: block;
-    font-size: 25px;
+    font-size: 28px;
     color:#666;
     font-weight: 600;
 }
@@ -102,7 +103,7 @@ div#score-continer.imp {
 
 #reset-btn {
     font-weight: bold;
-    font-size: 1.0em;
+    font-size: 1.4em;
     color:#933;
     opacity: 70%;
     transition: 0.75s ease-in;
@@ -120,27 +121,27 @@ div#score-continer.imp {
 }
 
 #reset-btn.imp {
-    font-size: 2.0em;
+    font-size: 1.8em;
     color:#c33;
 }
 
 $tile-styles: (
-    2:      (#999, 28px),
-    4:      (#09c, 28px),
-    8:      (#66c, 28px),
-    16:     (#33f, 26px),
-    32:     (#069, 26px),
-    64:     (#099, 26px),
-    128:    (#396, 24px),
-    256:    (#390, 24px),
-    512:    (#9c3, 24px),
-    1024:   (#993, 22px),
-    2048:   (#cc0, 22px),
-    4096:   (#c93, 22px),
-    8192:   (#c30, 22px),
-    16384:  (#c06, 20px),
-    32768:  (#c60, 20px),
-    65536:  (#f00, 20px),
+    2:      (#999, 44px),
+    4:      (#09c, 44px),
+    8:      (#66c, 44px),
+    16:     (#33f, 42px),
+    32:     (#069, 42px),
+    64:     (#099, 42px),
+    128:    (#396, 40px),
+    256:    (#390, 40px),
+    512:    (#9c3, 40px),
+    1024:   (#993, 34px),
+    2048:   (#cc0, 34px),
+    4096:   (#c93, 34px),
+    8192:   (#c30, 34px),
+    16384:  (#c06, 30px),
+    32768:  (#c60, 30px),
+    65536:  (#f00, 30px),
 );
 
 @each $val, $styles in $tile-styles {

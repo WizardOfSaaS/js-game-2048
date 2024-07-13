@@ -178,7 +178,6 @@ class Game {
         this.continueBtn = document.getElementById('continue-btn')
         this.continueBtn.addEventListener('click', this.handleContinue.bind(this))
         this.reset()
-        this.update()
     }
     got2048() {
         if (this.hasReached2048) { return }
@@ -222,6 +221,7 @@ class Game {
         this.board.addNewTile()
         this.board.addNewTile()
         this.isActive = true
+        this.update()
     }
 }
 
