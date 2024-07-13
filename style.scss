@@ -12,8 +12,10 @@ main {
     width: 100vw;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 0.1rem;
 }
 
 #board {
@@ -27,6 +29,11 @@ main {
     background-color: #aaa;
     padding: 0.5rem;
     border-radius: 5%;
+    transition: 0.5s ease-in-out;
+}
+
+#board.fade {
+    opacity: 50%;
 }
 
 .cell {
@@ -38,6 +45,83 @@ main {
     background-color: #ddd;
     border-radius: 5%;
     color: #ddd;
+    transition: 0.1s ease-out;
+}
+
+div#score-container {
+    margin-top: 0.5rem;
+    display: block;
+    font-size: 25px;
+    color:#666;
+    font-weight: 600;
+}
+
+div#score-continer.imp {
+    font-size: 30px;
+    color:#333;
+}
+
+#status {
+    font-size: 30px;
+    font-weight: bold;
+    color:#333;
+    transform: scale(0,0);
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+#status.imp {
+    transform: scale(1,1);
+    opacity: 100%;
+}
+
+#continue-btn {
+    font-weight: bold;
+    font-size: 1.0em;
+    color: #666;
+    transform: scale(0, 0);
+    transition: 0.75s ease-in;
+    padding: 0.1em;
+    border-radius: 10%;
+    background-color: #00000000;
+    outline: 2px solid #00000000;
+}
+
+#continue-btn.imp {
+    color: #373;
+    transform: scale(1, 1);
+}
+
+#continue-btn.imp:hover {
+    display: block;
+    transform: scale(1, 1);
+    color: #393;
+    background-color: #dfd;
+    outline: 3px solid #393;
+}
+
+#reset-btn {
+    font-weight: bold;
+    font-size: 1.0em;
+    color:#933;
+    opacity: 70%;
+    transition: 0.75s ease-in;
+    padding: 0.4em;
+    cursor: pointer;
+    border-radius: 10%;
+    outline: 2px solid #cc333300 
+}
+
+#reset-btn:hover {
+    opacity: 100%;
+    color:#c33;
+    background-color: #fdd;
+    outline: 2px solid #c33;
+}
+
+#reset-btn.imp {
+    font-size: 2.0em;
+    color:#c33;
 }
 
 $tile-styles: (
@@ -62,6 +146,7 @@ $tile-styles: (
 @each $val, $styles in $tile-styles {
     .tile-#{$val} {
         background-color: nth($styles, 1);
-        font-size:nth($styles, 2)
+        font-size:nth($styles, 2);
+        transition: 0.1s ease-in;
     }
 }

@@ -10,8 +10,10 @@ main {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  gap: 0.1rem; }
 
 #board {
   display: grid;
@@ -23,7 +25,11 @@ main {
   letter-spacing: 0.0rem;
   background-color: #aaa;
   padding: 0.5rem;
-  border-radius: 5%; }
+  border-radius: 5%;
+  transition: 0.5s ease-in-out; }
+
+#board.fade {
+  opacity: 50%; }
 
 .cell {
   width: 4rem;
@@ -33,70 +39,153 @@ main {
   justify-content: center;
   background-color: #ddd;
   border-radius: 5%;
-  color: #ddd; }
+  color: #ddd;
+  transition: 0.1s ease-out; }
+
+div#score-container {
+  margin-top: 0.5rem;
+  display: block;
+  font-size: 25px;
+  color: #666;
+  font-weight: 600; }
+
+div#score-continer.imp {
+  font-size: 30px;
+  color: #333; }
+
+#status {
+  font-size: 30px;
+  font-weight: bold;
+  color: #333;
+  transform: scale(0, 0);
+  opacity: 0;
+  transition: 0.5s ease-in-out; }
+
+#status.imp {
+  transform: scale(1, 1);
+  opacity: 100%; }
+
+#continue-btn {
+  font-weight: bold;
+  font-size: 1.0em;
+  color: #666;
+  transform: scale(0, 0);
+  transition: 0.75s ease-in;
+  padding: 0.1em;
+  border-radius: 10%;
+  background-color: #00000000;
+  outline: 2px solid #00000000; }
+
+#continue-btn.imp {
+  color: #373;
+  transform: scale(1, 1); }
+
+#continue-btn.imp:hover {
+  display: block;
+  transform: scale(1, 1);
+  color: #393;
+  background-color: #dfd;
+  outline: 3px solid #393; }
+
+#reset-btn {
+  font-weight: bold;
+  font-size: 1.0em;
+  color: #933;
+  opacity: 70%;
+  transition: 0.75s ease-in;
+  padding: 0.4em;
+  cursor: pointer;
+  border-radius: 10%;
+  outline: 2px solid #cc333300; }
+
+#reset-btn:hover {
+  opacity: 100%;
+  color: #c33;
+  background-color: #fdd;
+  outline: 2px solid #c33; }
+
+#reset-btn.imp {
+  font-size: 2.0em;
+  color: #c33; }
 
 .tile-2 {
   background-color: #999;
-  font-size: 28px; }
+  font-size: 28px;
+  transition: 0.1s ease-in; }
 
 .tile-4 {
   background-color: #09c;
-  font-size: 28px; }
+  font-size: 28px;
+  transition: 0.1s ease-in; }
 
 .tile-8 {
   background-color: #66c;
-  font-size: 28px; }
+  font-size: 28px;
+  transition: 0.1s ease-in; }
 
 .tile-16 {
   background-color: #33f;
-  font-size: 26px; }
+  font-size: 26px;
+  transition: 0.1s ease-in; }
 
 .tile-32 {
   background-color: #069;
-  font-size: 26px; }
+  font-size: 26px;
+  transition: 0.1s ease-in; }
 
 .tile-64 {
   background-color: #099;
-  font-size: 26px; }
+  font-size: 26px;
+  transition: 0.1s ease-in; }
 
 .tile-128 {
   background-color: #396;
-  font-size: 24px; }
+  font-size: 24px;
+  transition: 0.1s ease-in; }
 
 .tile-256 {
   background-color: #390;
-  font-size: 24px; }
+  font-size: 24px;
+  transition: 0.1s ease-in; }
 
 .tile-512 {
   background-color: #9c3;
-  font-size: 24px; }
+  font-size: 24px;
+  transition: 0.1s ease-in; }
 
 .tile-1024 {
   background-color: #993;
-  font-size: 22px; }
+  font-size: 22px;
+  transition: 0.1s ease-in; }
 
 .tile-2048 {
   background-color: #cc0;
-  font-size: 22px; }
+  font-size: 22px;
+  transition: 0.1s ease-in; }
 
 .tile-4096 {
   background-color: #c93;
-  font-size: 22px; }
+  font-size: 22px;
+  transition: 0.1s ease-in; }
 
 .tile-8192 {
   background-color: #c30;
-  font-size: 22px; }
+  font-size: 22px;
+  transition: 0.1s ease-in; }
 
 .tile-16384 {
   background-color: #c06;
-  font-size: 20px; }
+  font-size: 20px;
+  transition: 0.1s ease-in; }
 
 .tile-32768 {
   background-color: #c60;
-  font-size: 20px; }
+  font-size: 20px;
+  transition: 0.1s ease-in; }
 
 .tile-65536 {
   background-color: #f00;
-  font-size: 20px; }
+  font-size: 20px;
+  transition: 0.1s ease-in; }
 
 /*# sourceMappingURL=style.css.map */
