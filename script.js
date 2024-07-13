@@ -1,6 +1,3 @@
-console.clear()
-console.log('Run: ', new Date())
-
 class Tile {
     constructor(val, cell) {
         this.val = val
@@ -135,7 +132,6 @@ class Board {
         if (changed) {
             this.nFreeCells = this.cells.flat().filter(c => !c.tile).length
         }
-        console.log("Changed: ", changed)
         return changed
     }
     async playMove(dir) {
@@ -144,7 +140,6 @@ class Board {
             await this.addNewTile()
         }
         if (!this.checkMovesPossible()) {
-            console.log('GAME OVER')
             game.isGameOver = true
         }
         game.update()
@@ -191,7 +186,6 @@ class Game {
         this.handleWin()
     }
     update() {
-        console.log('Score:', this.score)
         this.scoreElem.innerText = this.score
         if (this.isGameOver) { this.handleGameOver() }
     }
