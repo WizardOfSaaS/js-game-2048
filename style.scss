@@ -45,7 +45,7 @@ main {
     background-color: #ddd;
     border-radius: 5%;
     color: #ddd;
-    transition: 0.1s ease-out;
+    transition: 0.05s ease-out;
 }
 
 div#score-container {
@@ -147,6 +147,6 @@ $tile-styles: (
     .tile-#{$val} {
         background-color: nth($styles, 1);
         font-size:nth($styles, 2);
-        transition: 0.1s ease-in;
+        transition: 0.05s ease-in;
     }
 }

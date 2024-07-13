@@ -40,7 +40,7 @@ main {
   background-color: #ddd;
   border-radius: 5%;
   color: #ddd;
-  transition: 0.1s ease-out; }
+  transition: 0.05s ease-out; }
 
 div#score-container {
   margin-top: 0.5rem;
@@ -111,81 +111,81 @@ div#score-continer.imp {
 .tile-2 {
   background-color: #999;
   font-size: 28px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-4 {
   background-color: #09c;
   font-size: 28px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-8 {
   background-color: #66c;
   font-size: 28px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-16 {
   background-color: #33f;
   font-size: 26px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-32 {
   background-color: #069;
   font-size: 26px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-64 {
   background-color: #099;
   font-size: 26px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-128 {
   background-color: #396;
   font-size: 24px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-256 {
   background-color: #390;
   font-size: 24px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-512 {
   background-color: #9c3;
   font-size: 24px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-1024 {
   background-color: #993;
   font-size: 22px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-2048 {
   background-color: #cc0;
   font-size: 22px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-4096 {
   background-color: #c93;
   font-size: 22px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-8192 {
   background-color: #c30;
   font-size: 22px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-16384 {
   background-color: #c06;
   font-size: 20px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-32768 {
   background-color: #c60;
   font-size: 20px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 .tile-65536 {
   background-color: #f00;
   font-size: 20px;
-  transition: 0.1s ease-in; }
+  transition: 0.05s ease-in; }
 
 /*# sourceMappingURL=style.css.map */

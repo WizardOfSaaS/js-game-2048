@@ -21,7 +21,10 @@ class Cell {
         this.isEmpty = true
         this.tile = null
     }
-    addNewTile(val) {
+    async addNewTile(val) {
+        await new Promise((resolve, reject) => {
+            setTimeout(resolve, 120)
+        })
         this.acceptTile(new Tile(val, this))
     }
     acceptTile(tile) {
@@ -31,9 +34,12 @@ class Cell {
         this.elem.classList.add(`tile-${val}`)
         this.elem.innerText = val
     }
-    shiftTileTo(other) {
+    async shiftTileTo(other) {
         if (this.tile === null) { return }
         other.acceptTile(this.tile)
+        await new Promise((resolve, reject) => {
+            setTimeout(resolve, 20)
+        })
         this.clear()
     }
     doubleTile() {
@@ -65,19 +71,19 @@ class Board {
         if (!game.isActive) { return }
         e.key.match(/^Arrow/) && this.playMove(e.key.replace(/^Arrow/, '').toUpperCase())
     }
-    addNewTile() {
+    async addNewTile() {
         const randomIdx = Math.floor(Math.random() * this.nFreeCells)
         const randomVal = 2 + 2 * Math.floor(2 * Math.random())
         const randomEmptyCell = this.cells.flat().filter(c => !c.tile)[randomIdx]
-        randomEmptyCell.addNewTile(randomVal)
+        await randomEmptyCell.addNewTile(randomVal)
         this.nFreeCells--
     }
-    moveLine(cells) {
+    async moveLine(cells) {
         let changed = false;
         for (let n = 0; n < 4; n++) {
             for (let i = 1; i < 4; i++) {
                 if (!cells[i - 1].tile && cells[i].tile) {
-                    cells[i].shiftTileTo(cells[i - 1])
+                    await cells[i].shiftTileTo(cells[i - 1])
                     changed = changed || true
                 } else if (
                     cells[i].tile &&
@@ -94,42 +100,48 @@ class Board {
         cells.forEach(c => { c.tile ? c.tile.isStable = true : null })
         return changed
     }
-    moveInDirection(dir) {
+    async moveInDirection(dir) {
+        let promises
         let changed = false
         switch (dir) {
             case 'LEFT':
-                changed = this.cells.map(row => this.moveLine(row.map(el => el))).some(el => el)
+                promises = this.cells.map(row => this.moveLine(row.map(el => el)))
+                changed = (await Promise.all(promises)).some(el => el)
                 break
             case 'RIGHT':
-                changed = this.cells.map(row => this.moveLine(row.map(el => el).reverse())).some(el => el)
+                promises = this.cells.map(row => this.moveLine(row.map(el => el).reverse()))
+                changed = (await Promise.all(promises)).some(el => el)
                 break
             case 'UP':
-                changed = [0, 1, 2, 3].map(col => {
+                promises = [0, 1, 2, 3].map(col => {
                     return this.moveLine(
                         [0, 1, 2, 3].map(row => this.cells[row][col]
                         )
                     )
-                }).some(el => el)
+                })
+                changed = (await Promise.all(promises)).some(el => el)
                 break
             case 'DOWN':
-                changed = [0, 1, 2, 3].map(col => {
+                promises = [0, 1, 2, 3].map(col => {
                     return this.moveLine(
                         [0, 1, 2, 3]
                             .map(row => this.cells[row][col])
                             .reverse()
                     )
-                }).some(el => el)
+                })
+                changed = (await Promise.all(promises)).some(el => el)
                 break
         }
         if (changed) {
             this.nFreeCells = this.cells.flat().filter(c => !c.tile).length
         }
+        console.log("Changed: ", changed)
         return changed
     }
-    playMove(dir) {
-        const changed = this.moveInDirection(dir)
+    async playMove(dir) {
+        const changed = await this.moveInDirection(dir)
         if (changed) {
-            this.addNewTile()
+            await this.addNewTile()
         }
         if (!this.checkMovesPossible()) {
             console.log('GAME OVER')
